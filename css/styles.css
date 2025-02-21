@@ -1,10 +1,249 @@
-.header-bg {
-    background-color: #3b86c4;  /* Color azul */
-    padding: 20px;
-    color: white;
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+body > .container {
+    padding: 15px 15px;
+}
+
+.container .text-muted {
+    margin: 20px 0;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+header {
+    background-color: #4390df;
+    border-bottom: solid 5px #9a1616;
+}
+
+input::-ms-clear, input::-ms-reveal {
+    display: none;
 }
 
 #logo {
-    width: 80px; /* Ajusta según el tamaño que quieras */
-    height: auto;
+    width: 100px;
+    height: 100px;
+    padding:5px;
+}
+
+#login {
+    width: 90%;
+    margin: 0 auto;
+}
+.navbar{
+	margin-bottom:5px
+}
+.navbar-default {
+    background-color:white;
+    border-bottom:solid 1px #7ea700;
+}
+
+    .navbar-default .navbar-nav>.active>a {
+        color: #ffffff;
+        background-color: #0088cc;
+    }
+.dropdown > li > a:hover,
+.dropdown > li > a:focus,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #0081c2;
+  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -o-linear-gradient(top, #0088cc, #0077b3);
+  background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+}
+
+a {
+    text-decoration:none;
+}
+
+.navbar .nav > li > .dropdown-menu:before {
+  position: absolute;
+  top: -7px;
+  left: 9px;
+  display: inline-block;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-left: 7px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  content: '';
+}
+
+.navbar .nav > li > .dropdown-menu:after {
+  position: absolute;
+  top: -6px;
+  left: 10px;
+  display: inline-block;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  border-left: 6px solid transparent;
+  content: '';
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    background-color: #0072C6;
+    color: #fff;
+    border: 1px solid #285e8e;
+    border-radius: 0;
+}
+
+    .btn-primary:hover {
+        background-color: #7ea700;
+        color:#fff;
+        text-decoration:inherit;
+    }
+
+.field-validation-error {
+    color: #f82929;
+}
+
+.k-notification {
+    border: 0;
+}
+
+.k-notification-info.k-group {
+    background-color: #0C780F;
+    color: #fff;
+}
+
+.k-notification-error.k-group {
+    background-color: #FF4B4B;
+    color: #fff;
+}
+
+.k-notification {
+    width: 300px;
+    height: 100px;
+}
+
+    .k-notification p {
+        font-size: 1em;
+        padding: 32px 10px 5px;
+    }
+
+    .k-notification img {
+        float: left;
+        margin: 30px 15px 30px 30px;
+    }
+
+    .k-state-selected {
+    background-image: none;
+}
+
+div.k-grid-header .k-header, .k-grid-header .k-header .k-link {
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #363636;
+}
+
+.k-block, .k-widget, .k-popup, .k-content, .k-dropdown .k-input {
+    color: #0f0e0e;
+}
+
+.k-grid td {
+    text-align: center;
+    font-size: 13px;
+}
+
+    .k-grid td.cell-left {
+        text-align: left;
+    }
+
+.grid .k-header, .grid .k-grid-header, #Resumen .k-header {
+    background-color: #1ba1e2;
+    text-align: center;
+}
+
+    .grid div.k-grid-header .k-header, .grid .k-grid-header .k-header .k-link, .grid th.k-header, #Resumen .k-header {
+        color: white;
+    }
+
+.k-block {
+    background-color: white;
+}
+.img-acad {
+            background-image: url('../img/academico.png');
+            height:24px;
+            width:24px;
+            float:left;
+        }
+        .boletin {
+            background-position: -0px -0px;
+        }
+        .horario {
+            background-position: -0px -34px;
+        }
+        .historial {
+            background-position: -0px -66px;
+        }
+
+        .informe {
+            background-position: -0px -100px;
+        }
+
+        .plan {
+            background-position: -0px -134px;
+        }
+.k-window-titlebar {
+            background-color:#2b5797;
+            color:white;
+        }
+.k-i-plus, .k-add {
+    background-position:-48px -64px !important;
+}
+.k-i-close{
+    background-position:-48px -16px;
+}
+.k-i-maximize {
+    background-position:-48px -144px;
+}
+.k-i-minimize {
+    background-position:-80px -288px;
+}
+.k-i-restore {
+background-position:-48px -128px;
+}
+.k-i-pin {
+    background-position:-176px -256px;
+}
+.k-i-arrow-e {
+    background-position:-16px -16px;
 }
