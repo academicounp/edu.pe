@@ -3,16 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Principal</title>
+    <title>Sistema Integrado de Gestión Académica</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header-bg {
+            background-color: #2b6dad;
+            padding: 10px;
+            color: white;
+        }
+        .navbar {
+            background-color: #004085;
+        }
+        .navbar .nav-link {
+            color: white;
+        }
+        .navbar .nav-link:hover {
+            background-color: #0062cc;
+        }
+        .content {
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bienvenido al Menú Principal</h1>
-    <nav>
-        <ul>
-            <li><a href="inicio.html">Inicio</a></li>
-            <li><a href="semestre.html">Semestre</a></li>
-            <li><a href="notas.html">Notas</a></li>
-        </ul>
+    <header class="header-bg text-center">
+        <img src="img/logounp.png" alt="Universidad Nacional de Piura" width="60">
+        <h3>Sistema Integrado de Gestión Académica</h3>
+        <small>Universidad Nacional de Piura</small>
+    </header>
+    
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Semestre Actual</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Procesos Académicos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Resultados Académicos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="#">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
+
+    <div class="container content">
+        <div class="alert alert-success">
+            <strong>Atención:</strong> Si eres estudiante del último año de estudio, debes llenar la PRE-ENCUESTA UNP-2024.
+        </div>
+        <h5><a href="#">Estudiantes del último año (Egresantes)</a></h5>
+        <p>Atención Estudiantes de Ingeniería Civil</p>
+        <h6><a href="#" class="fw-bold">Encuesta para Estudiante de Ingeniería Civil</a></h6>
+        <p>Por favor, dedique unos minutos a completar esta encuesta.</p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
