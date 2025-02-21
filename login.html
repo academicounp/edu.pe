@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+
+    <h2>Iniciar Sesión</h2>
+    
+    <label for="usuario">Usuario:</label>
+    <input type="text" id="usuario" placeholder="Ingresa tu usuario">
+
+    <label for="clave">Contraseña:</label>
+    <input type="password" id="clave" placeholder="Ingresa tu contraseña">
+
+    <button onclick="validarLogin()">Ingresar</button>
+
+    <script>
+        function validarLogin() {
+            let usuario = document.getElementById("usuario").value;
+            let clave = document.getElementById("clave").value;
+
+            if (usuario === "0532023042 && clave === "p4tr1c1o") { 
+                window.location.href = "menu.html"; // Redirige al menú
+            } else {
+                alert("Usuario o contraseña incorrectos");
+            }
+        }
+    </script>
+
+</body>
+</html>
