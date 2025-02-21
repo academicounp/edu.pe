@@ -1,66 +1,10 @@
-header {
-    background-color: #2D7CBF;  /* Color azul */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    color: white;
-}
-
-/* Estilo del logo */
-.logo img {
-    height: 60px; /* Ajusta según el tamaño del logo */
-}
-
-/* Estilo del título */
-.titulo {
-    text-align: center;
-    flex-grow: 1; /* Para centrar el texto */
-}
-
-.titulo h1 {
-    font-size: 20px;
-    margin: 0;
-}
-
-.titulo p {
-    font-size: 14px;
-    margin: 0;
-}
-
-/* Estilo de la sesión */
-.sesion {
-    font-size: 14px;
-}
-
-/* Estilo del formulario de login */
-.login-container {
-    width: 300px;
-    margin: 50px auto;
+.header-bg {
+    background-color: #3b86c4;  /* Color azul */
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.login-container input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.login-container button {
-    width: 100%;
-    padding: 10px;
-    background-color: #2D7CBF;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
-.login-container button:hover {
-    background-color: #1B5C91;
+#logo {
+    width: 80px; /* Ajusta según el tamaño que quieras */
+    height: auto;
 }
