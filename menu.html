@@ -13,6 +13,20 @@
             background-color: #2b6dad;
             padding: 10px;
             color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+        .header-left img {
+            margin-right: 10px;
+        }
+        .header-right {
+            text-align: right;
+            font-size: 14px;
         }
         .navbar {
             background-color: #004085;
@@ -29,10 +43,20 @@
     </style>
 </head>
 <body>
-    <header class="header-bg text-center">
-        <img src="img/logounp.png" alt="Universidad Nacional de Piura" width="60">
-        <h3>Sistema Integrado de Gestión Académica</h3>
-        <small>Universidad Nacional de Piura</small>
+    <header class="header-bg">
+        <div class="header-left">
+            <img src="img/logounp.png" alt="Universidad Nacional de Piura" width="60">
+            <div>
+                <h3 class="mb-0">Sistema Integrado de Gestión Académica</h3>
+                <small>Universidad Nacional de Piura</small>
+            </div>
+        </div>
+        <div class="header-right">
+            <p><strong>Alumno :</strong> 0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</p>
+            <p><strong>Escuela Profesional:</strong> INGENIERIA MECATRONICA</p>
+            <p><strong>Fecha :</strong> viernes, 21 de febrero de 2025</p>
+            <p><strong>Semestre actual:</strong> 2024-2</p>
+        </div>
     </header>
     
     <nav class="navbar navbar-expand-lg">
