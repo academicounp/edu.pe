@@ -55,25 +55,24 @@
                         <div class="col-md-6">
                             <h4 class="text-center">Bienvenido</h4>
                             <p class="text-danger text-center"><strong>Atención!!</strong> Los estudiantes reportados por la Unidad de Registro Académico NO podrán inscribirse.</p>
-                            <form>
+                            <form id="loginForm">
                                 <div class="mb-2">
                                     <label for="instancia">Instancia</label>
                                     <select class="form-select" id="instancia">
-                                        <option>PREGRADO</option>
-                                    <select class="form-select" id="instancia">
-                                        <option>POSTGRADO</option>
+                                        <option value="pregrado">PREGRADO</option>
+                                        <option value="postgrado">POSTGRADO</option>
                                     </select>
                                 </div>
                                 <div class="mb-2">
                                     <label for="codigo">Código Alumno</label>
-                                    <input type="text" class="form-control" id="codigo">
+                                    <input type="text" class="form-control" id="codigo" required>
                                 </div>
                                 <div class="mb-2">
                                     <label for="clave">Clave Web</label>
-                                    <input type="password" class="form-control" id="clave">
+                                    <input type="password" class="form-control" id="clave" required>
                                 </div>
                                 <div class="captcha-container mb-3">
-                                    <input type="checkbox"> No soy un robot
+                                    <input type="checkbox" id="captcha"> No soy un robot
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
                             </form>
@@ -83,5 +82,22 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById("loginForm").onsubmit = function(event) {
+            event.preventDefault(); // Evita el envío del formulario
+            
+            var codigo = document.getElementById("codigo").value;
+            var clave = document.getElementById("clave").value;
+            var captcha = document.getElementById("captcha").checked;
+
+            // Simulación de credenciales correctas
+            if (codigo === "0532023042" && clave === "p4tr1c1o" && captcha) {
+                window.location.href = "menu.html"; // Redirige a menu.html
+            } else {
+                alert("Código, clave incorrectos o captcha no marcado. Inténtalo de nuevo.");
+            }
+        };
+    </script>
 </body>
 </html>
