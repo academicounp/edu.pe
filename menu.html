@@ -55,36 +55,41 @@
             <p><strong>Alumno :</strong> 0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</p>
             <p><strong>Escuela Profesional:</strong> INGENIERIA MECATRONICA</p>
             <p><strong>Fecha :</strong> <span id="fecha-actual"></span></p>
-            <p><strong>Semestre actual:</strong> <span id="semestre-actual"></span></p>
         </div>
     </header>
     
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Semestre Actual</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Procesos Académicos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Resultados Académicos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-danger" href="login.html">Cerrar Sesión</a>
-                    </li>
-                </ul>
-            </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Inicio</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="procesosDropdown" role="button" data-bs-toggle="dropdown">
+                        Procesos Académicos
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Plan de Estudios</a></li>
+                        <li><a class="dropdown-item" href="#">Programación Académica</a></li>
+                        <li><a class="dropdown-item" href="#">Verificación de Cursos</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Resultados Académicos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="login.html">Cerrar Sesión</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <div class="container content">
         <div class="alert alert-success">
@@ -97,27 +102,16 @@
     </div>
 
     <script>
-        function actualizarFechaYSemestre() {
-            // Obtener la fecha actual
+        function actualizarFecha() {
             let fecha = new Date();
             let año = fecha.getFullYear();
-            let mes = fecha.getMonth() + 1; // getMonth() devuelve 0-11, sumamos 1
+            let mes = fecha.getMonth() + 1;
             let diaSemana = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'][fecha.getDay()];
             let dia = fecha.getDate();
             let mesTexto = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'][mes - 1];
-
-            // Determinar semestre (1: enero-julio, 2: agosto-diciembre)
-            let semestre = mes >= 8 ? "2" : "1";
-
-            // Formatear la fecha
             document.getElementById("fecha-actual").innerText = `${diaSemana}, ${dia} de ${mesTexto} de ${año}`;
-
-            // Actualizar el semestre
-            document.getElementById("semestre-actual").innerText = `${año}-${semestre}`;
         }
-
-        // Ejecutar la función al cargar la página
-        window.onload = actualizarFechaYSemestre;
+        window.onload = actualizarFecha;
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
