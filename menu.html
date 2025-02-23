@@ -54,8 +54,8 @@
         <div class="header-right">
             <p><strong>Alumno :</strong> 0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</p>
             <p><strong>Escuela Profesional:</strong> INGENIERIA MECATRONICA</p>
-            <p><strong>Fecha :</strong> viernes, 21 de febrero de 2025</p>
-            <p><strong>Semestre actual:</strong> 2024-2</p>
+            <p><strong>Fecha :</strong> <span id="fecha-actual"></span></p>
+            <p><strong>Semestre actual:</strong> <span id="semestre-actual"></span></p>
         </div>
     </header>
     
@@ -95,7 +95,31 @@
         <h6><a href="#" class="fw-bold">Encuesta para Estudiante de Ingeniería Civil</a></h6>
         <p>Por favor, dedique unos minutos a completar esta encuesta.</p>
     </div>
-    
+
+    <script>
+        function actualizarFechaYSemestre() {
+            // Obtener la fecha actual
+            let fecha = new Date();
+            let año = fecha.getFullYear();
+            let mes = fecha.getMonth() + 1; // getMonth() devuelve 0-11, sumamos 1
+            let diaSemana = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'][fecha.getDay()];
+            let dia = fecha.getDate();
+            let mesTexto = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'][mes - 1];
+
+            // Determinar semestre (1: enero-julio, 2: agosto-diciembre)
+            let semestre = mes >= 8 ? "2" : "1";
+
+            // Formatear la fecha
+            document.getElementById("fecha-actual").innerText = `${diaSemana}, ${dia} de ${mesTexto} de ${año}`;
+
+            // Actualizar el semestre
+            document.getElementById("semestre-actual").innerText = `${año}-${semestre}`;
+        }
+
+        // Ejecutar la función al cargar la página
+        window.onload = actualizarFechaYSemestre;
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
