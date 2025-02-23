@@ -16,16 +16,22 @@
             text-align: center;
             border-bottom: 4px solid #9a1616;
         }
-        .header-bg img {
-            display: block;
-            margin: 0 auto;
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
-        .header-bg h3, .header-bg small {
-            margin: 5px 0;
+        .header-content img {
+            width: 60px;
+        }
+        .header-text {
+            text-align: center;
         }
         .header-right {
             text-align: center;
             font-size: 14px;
+            margin-top: 10px;
         }
         .navbar {
             background-color: #004085;
@@ -43,9 +49,13 @@
 </head>
 <body>
     <header class="header-bg">
-        <img src="img/logounp.png" alt="Universidad Nacional de Piura" width="60">
-        <h3 class="mb-0">Sistema Integrado de Gestión Académica</h3>
-        <small>Universidad Nacional de Piura</small>
+        <div class="header-content">
+            <img src="img/logounp.png" alt="Universidad Nacional de Piura">
+            <div class="header-text">
+                <h3 class="mb-0">Sistema Integrado de Gestión Académica</h3>
+                <small>Universidad Nacional de Piura</small>
+            </div>
+        </div>
         <div class="header-right">
             <p><strong>Alumno :</strong> 0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</p>
             <p><strong>Escuela Profesional:</strong> INGENIERIA MECATRONICA</p>
@@ -63,8 +73,23 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Inicio</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Procesos Académicos</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="semestreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Semestre actual
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="semestreDropdown">
+                            <li><a class="dropdown-item" href="#">Horario de clases</a></li>
+                            <li><a class="dropdown-item" href="#">Boletín de curso</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="ProcesosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Procesos Académicos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="ProcesosDropdown">
+                            <li><a class="dropdown-item" href="#">Inscripción</a></li>
+                            <li><a class="dropdown-item" href="#">Matriculación</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Resultados Académicos</a>
