@@ -13,31 +13,33 @@
             background-color: #428bca;
             padding: 10px;
             color: white;
-            text-align: center;
             border-bottom: 4px solid #9a1616;
         }
         .header-content {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
             gap: 20px;
         }
-        .header-content img {
+        .header-left img {
             width: 60px;
         }
         .header-text {
-            text-align: center;
+            text-align: left;
         }
         .header-right {
-            text-align: center;
+            text-align: right;
             font-size: 14px;
-            margin-top: 10px;
         }
         .navbar {
-            background-color: #004085;
+            background-color: #ffffff;
         }
         .navbar .nav-link {
-            color: white;
+            color: black;
         }
         .navbar .nav-link:hover {
             background-color: #0062cc;
@@ -49,17 +51,21 @@
 </head>
 <body>
     <header class="header-bg">
-        <div class="header-content">
-            <img src="img/logounp.png" alt="Universidad Nacional de Piura">
-            <div class="header-text">
-                <h3 class="mb-0">Sistema Integrado de Gestión Académica</h3>
-                <small>Universidad Nacional de Piura</small>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <img src="img/logounp.png" alt="Universidad Nacional de Piura">
+                    <div class="header-text">
+                        <h3 class="mb-0">Sistema Integrado de Gestión Académica</h3>
+                        <small>Universidad Nacional de Piura</small>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <p><strong>Alumno :</strong> 0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</p>
+                    <p><strong>Escuela Profesional:</strong> INGENIERIA MECATRONICA</p>
+                    <p><strong>Fecha :</strong> <span id="fecha-actual"></span></p>
+                </div>
             </div>
-        </div>
-        <div class="header-right">
-            <p><strong>Alumno :</strong> 0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</p>
-            <p><strong>Escuela Profesional:</strong> INGENIERIA MECATRONICA</p>
-            <p><strong>Fecha :</strong> <span id="fecha-actual"></span></p>
         </div>
     </header>
     
@@ -83,13 +89,13 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="procesosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="ProcesosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Procesos Académicos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="ProcesosDropdown">
                             <li><a class="dropdown-item" href="#">Plan de estudio</a></li>
                             <li><a class="dropdown-item" href="#">Programación académica</a></li>
-                            <li><a class="dropdown-item" href="#">Verificación de cursos</a></li>
+                            <li><a class="dropdown-item" href="#">Plan de estudio</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -101,9 +107,8 @@
                             <li><a class="dropdown-item" href="#">informe académico</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
                         <a class="nav-link text-danger" href="login.html">Cerrar Sesión</a>
-                    </li>
+                    <li>
                 </ul>
             </div>
         </div>
