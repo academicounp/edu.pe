@@ -35,9 +35,14 @@
             text-align: right;
             font-size: 14px;
             display: flex;
-            flex-direction: column;
-            gap: 0px;
-            margin: 2px 0
+            gap: 5px;
+            margin: 2px 0;
+        }
+        .header-right p strong {
+            white-space: nowrap;
+        }
+        .header-right p span {
+            flex-grow: 1;
         }
         .navbar {
             background-color: #ffffff;
@@ -65,10 +70,10 @@
                     </div>
                 </div>
                 <div class="header-right">
-                    <p><strong>Alumno:</strong> 0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</p>
-                    <p><strong>Escuela Profesional:</strong> INGENIERIA MECATRONICA</p>
+                    <p><strong>Alumno:</strong> <span>0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</span></p>
+                    <p><strong>Escuela Profesional:</strong> <span>INGENIERIA MECATRONICA</span></p>
                     <p><strong>Fecha:</strong> <span id="fecha-actual"></span></p>
-                    <p><strong>Semestre actual:</strong> 2024-2 </p>
+                    <p><strong>Semestre actual:</strong> <span>2024-2</span></p>
                 </div>
             </div>
         </div>
