@@ -1,474 +1,465 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Integrado de Gestión Académica</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .header-bg {
-            background-color: #428bca;
-            padding: 10px;
-            color: white;
-            border-bottom: 4px solid #9a1616;
-        }
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .header-left img {
-            width: 80px;
-        }
-        .header-text {
-            text-align: left;
-        }
-        .header-right p {
-            text-align: right;
-            font-size: 14px;
-            display: flex;
-            gap: 5px;
-            margin: 2px 0;
-        }
-        .header-right p strong {
-            white-space: nowrap;
-        }
-        .header-right p span {
-            flex-grow: 1;
-        }
-        .navbar {
-            background-color: #ffffff;
-            border-bottom: 1px solid black;
-        }
-        .navbar .nav-link {
-            color: black;
-        }
-        .navbar .nav-link:hover {
-            background-color: #0062cc;
-        }
-        .content {
-            padding: 20px;
-        }
-        
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistema Integrado de Gestión Académica</title>
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  />
+  <style>
+    /* ======= Estilos de Encabezado ======= */
+    body {
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    .header-bg {
+      background-color: #428bca;
+      padding: 10px;
+      color: white;
+      border-bottom: 4px solid #9a1616;
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-left img {
+      width: 80px;
+    }
+    .header-text {
+      text-align: left;
+    }
+    .header-right p {
+      text-align: right;
+      font-size: 14px;
+      display: flex;
+      gap: 5px;
+      margin: 2px 0;
+    }
+    .header-right p strong {
+      white-space: nowrap;
+    }
+    .header-right p span {
+      flex-grow: 1;
+    }
+    .navbar {
+      background-color: #ffffff;
+      border-bottom: 1px solid black;
+    }
+    .navbar .nav-link {
+      color: black;
+    }
+    .navbar .nav-link:hover {
+      background-color: #0062cc;
+      color: #fff !important;
+    }
+
+    /* ======= Contenido Principal ======= */
+    .content {
+      padding: 20px;
+    }
+
+    /* ======= Estilos para Tablas ======= */
+    .table thead th {
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+    }
+    .table td,
+    .table th {
+      vertical-align: middle; /* Centra verticalmente el texto */
+    }
+    /* Resumen (PPS, PPA, Créditos, etc.) */
+    .resumen td {
+      font-weight: bold;
+      background-color: #eaf4ff;
+      text-align: center;
+    }
+    /* Título de cada semestre */
+    .semester-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    /* Botón de reporte */
+    .btn-report {
+      float: right;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-    <header class="header-bg">
-        <div class="container">
-            <div class="header-content">
-                <div class="header-left">
-                    <img src="img/logounp.png" alt="Universidad Nacional de Piura">
-                    <div class="header-text">
-                        <h3 class="mb-0">Sistema Integrado de Gestión Académica</h3>
-                        <small>Universidad Nacional de Piura</small>
-                    </div>
-                </div>
-                <div class="header-right">
-                    <p><strong>Alumno:</strong> <span>0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</span></p>
-                    <p><strong>Escuela Profesional:</strong> <span>INGENIERIA MECATRONICA</span></p>
-                    <p><strong>Fecha:</strong> <span id="fecha-actual"></span></p>
-                    <p><strong>Semestre actual:</strong> <span>2024-2</span></p>
-                </div>
-            </div>
+  <!-- ENCABEZADO -->
+  <header class="header-bg">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-left">
+          <img src="img/logounp.png" alt="Universidad Nacional de Piura" />
+          <div class="header-text">
+            <h3 class="mb-0">Sistema Integrado de Gestión Académica</h3>
+            <small>Universidad Nacional de Piura</small>
+          </div>
         </div>
-    </header>
-    
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Inicio</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="semestreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Semestre actual
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="semestreDropdown">
-                            <li><a class="dropdown-item" href="horario.html">Horario de clases</a></li>
-                            <li><a class="dropdown-item" href="Boletin.html">Boletín de curso</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="ProcesosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Procesos Académicos
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="ProcesosDropdown">
-                            <li><a class="dropdown-item" href="plan.html">Plan de estudio</a></li>
-                            <li><a class="dropdown-item" href="programacion.html">Programación académica</a></li>
-                            <li><a class="dropdown-item" href="plan.html">Plan de estudio</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="resultadosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Resultados Académicos
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="ProcesosDropdown">
-                            <li><a class="dropdown-item" href="historial.html">Historial académico</a></li>
-                            <li><a class="dropdown-item" href="informe.html">informe académico</a></li>
-                        </ul>
-                    </li>
-                        <a class="nav-link text-danger" href="login.html">Cerrar Sesión</a>
-                    <li>
-                </ul>
-            </div>
+        <div class="header-right">
+          <p>
+            <strong>Alumno:</strong>
+            <span>0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</span>
+          </p>
+          <p>
+            <strong>Escuela Profesional:</strong>
+            <span>INGENIERIA MECATRONICA</span>
+          </p>
+          <p>
+            <strong>Fecha:</strong>
+            <span id="fecha-actual"></span>
+          </p>
+          <p>
+            <strong>Semestre actual:</strong>
+            <span>2024-2</span>
+          </p>
         </div>
-    </nav>
-
-<div class="container" bis_skin_checked="1">
-            <div class="modal-body" bis_skin_checked="1">
-          
-
-
-
-            </div>
-        
-
-
-
-<fieldset>
-    <legend>Historial Académico</legend>
-    <div class="pull-right" bis_skin_checked="1">
-        <a href="../Reportes/HistorialAcademico" target="_blank" id="btn-reporte" class="k-button k-primary">Reporte de Historial Académico</a>
+      </div>
     </div>
-    <div class="clearfix" bis_skin_checked="1"></div>
-            <h4 class="text-center">Semestre: 2023-1            </h4>
-            <div class="k-grid k-widget" bis_skin_checked="1">
-                        <div class="k-toolbar k-grid-toolbar" bis_skin_checked="1">
-                            <table class="resumen">
-                                <tbody><tr>
-                                    <td>PPS:</td>
-                                    <td>12.33</td>
-                                    <td>PPS Aprob:</td>
-                                    <td>13.55</td>
-                                    <td>PPA:</td>
-                                    <td>12.33</td>
-                                    <td>PPA Apr:</td>
-                                    <td>13.55</td>
-                                    <td>Cre Obl Llev:</td>
-                                    <td>15</td>
-                                </tr>
-                                <tr>
-                                    <td>Cre El Llev:</td>
-                                    <td>0</td>
-                                    <td>Cre Obl Apr:</td>
-                                    <td>11</td>
-                                    <td>Cre Ele Apr:</td>
-                                    <td>0</td>
-                                    <td>Cre Obl Conv:</td>
-                                    <td>0</td>
-                                    <td>Cred Ele Conv:</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>Total Cred Obl Llev:</td>
-                                    <td>15.00</td>
-                                    <td>Total Cred El Llev:</td>
-                                    <td>0</td>
-                                    <td>Total Cred Obl Aprob:</td>
-                                    <td>11.00</td>
-                                    <td>Total Cred El Aprob:</td>
-                                    <td>0</td>
-                                    <td>Total Cred Obl Conv:</td>
-                                    <td>0</td>
-                                </tr>
-                            </tbody></table>
-                        </div>
-                    <div class="k-grid-header" bis_skin_checked="1">
-                        <div class="k-grid-header-wrap" bis_skin_checked="1">
-                            <table>
-                                <colgroup>
-                                    <col style="width: 100px">
-                                    <col style="width: 300px">
-                                    <col style="width: 60px">
-                                    <col style="width: 60px">
-                                    <col style="width: 60px">
-                                </colgroup>
-                                <thead class="grid">
-                                    <tr>
-                                        <th class="k-header">Código</th>
-                                        <th class="k-header">Curso</th>
-                                        <th class="k-header">Tipo</th>
-                                        <th class="k-header">Créditos</th>
-                                        <th class="k-header">Nota</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="k-grid-content" bis_skin_checked="1">
-                        <table>
-                            <colgroup>
-                                <col style="width: 100px">
-                                <col style="width: 300px">
-                                <col style="width: 60px">
-                                <col style="width: 60px">
-                                <col style="width: 60px">
-                            </colgroup>
-                            <tbody>
-                                    <tr>
-                                        <td>SI1447</td>
-                                        <td>ALGORITMOS</td>
-                                        <td>O</td>
-                                        <td>4</td>
-                                        <td>0                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ED1331</td>
-                                        <td>COMUNICACION</td>
-                                        <td>O</td>
-                                        <td>3</td>
-                                        <td>11.00                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>CS1286</td>
-                                        <td>FILOSOFIA Y ETICA</td>
-                                        <td>O</td>
-                                        <td>2</td>
-                                        <td>0                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>MC1202</td>
-                                        <td>FUNDAMENTOS DE INGENIERIA MECATRONICA</td>
-                                        <td>O</td>
-                                        <td>2</td>
-                                        <td>14.00                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>MA1470</td>
-                                        <td>GEOMETRIA ANALITICA</td>
-                                        <td>O</td>
-                                        <td>4</td>
-                                        <td>9.00                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>SI1358</td>
-                                        <td>HERRAMIENTAS OFIMATICAS PARA LA VIDA UNIVERSITARIA</td>
-                                        <td>O</td>
-                                        <td>3</td>
-                                        <td>0                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>MA1408</td>
-                                        <td>MATEMATICA BASICA</td>
-                                        <td>O</td>
-                                        <td>4</td>
-                                        <td>14.00                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ED1297</td>
-                                        <td>METODOLOGIA DE LOS ESTUDIOS SUPERIORES UNIVERSITARIOS</td>
-                                        <td>O</td>
-                                        <td>2</td>
-                                        <td>16.00                                        </td>
-                                    </tr>
-                            </tbody>
-                        </table>
-                    </div>
-            </div>
-            <h4 class="text-center">Semestre: 2023-2            </h4>
-            <div class="k-grid k-widget" bis_skin_checked="1">
-                    <div class="k-grid-header" bis_skin_checked="1">
-                        <div class="k-grid-header-wrap" bis_skin_checked="1">
-                            <table>
-                                <colgroup>
-                                    <col style="width: 100px">
-                                    <col style="width: 300px">
-                                    <col style="width: 60px">
-                                    <col style="width: 60px">
-                                    <col style="width: 60px">
-                                </colgroup>
-                                <thead class="grid">
-                                    <tr>
-                                        <th class="k-header">Código</th>
-                                        <th class="k-header">Curso</th>
-                                        <th class="k-header">Tipo</th>
-                                        <th class="k-header">Créditos</th>
-                                        <th class="k-header">Nota</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="k-grid-content" bis_skin_checked="1">
-                        <table>
-                            <colgroup>
-                                <col style="width: 100px">
-                                <col style="width: 300px">
-                                <col style="width: 60px">
-                                <col style="width: 60px">
-                                <col style="width: 60px">
-                            </colgroup>
-                            <tbody>
-                                    <tr>
-                                        <td>ED1292</td>
-                                        <td>ACTIVIDAD DEPORTIVA</td>
-                                        <td>O</td>
-                                        <td>2</td>
-                                        <td>0                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>MA1335</td>
-                                        <td>ALGEBRA LINEAL</td>
-                                        <td>O</td>
-                                        <td>3</td>
-                                        <td>0                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>CB1324</td>
-                                        <td>BIOLOGIA Y EDUCACION AMBIENTAL</td>
-                                        <td>O</td>
-                                        <td>3</td>
-                                        <td>0                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>MA1439</td>
-                                        <td>CALCULO I</td>
-                                        <td>O</td>
-                                        <td>4</td>
-                                        <td>0                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>FI1363</td>
-                                        <td>CONCEPCION FISICA DEL UNIVERSO</td>
-                                        <td>O</td>
-                                        <td>3</td>
-                                        <td>0                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>QU1363</td>
-                                        <td>QUIMICA GENERAL</td>
-                                        <td>O</td>
-                                        <td>3</td>
-                                        <td>0                                        </td>
-                                    </tr>
-                            </tbody>
-                        </table>
-                    </div>
-            </div>
-            <h4 class="text-center">Semestre: 2024-1            </h4>
-            <div class="k-grid k-widget" bis_skin_checked="1">
-                        <div class="k-toolbar k-grid-toolbar" bis_skin_checked="1">
-                            <table class="resumen">
-                                <tbody><tr>
-                                    <td>PPS:</td>
-                                    <td>12.00</td>
-                                    <td>PPS Aprob:</td>
-                                    <td>12.00</td>
-                                    <td>PPA:</td>
-                                    <td>12.26</td>
-                                    <td>PPA Apr:</td>
-                                    <td>13.14</td>
-                                    <td>Cre Obl Llev:</td>
-                                    <td>4</td>
-                                </tr>
-                                <tr>
-                                    <td>Cre El Llev:</td>
-                                    <td>0</td>
-                                    <td>Cre Obl Apr:</td>
-                                    <td>4</td>
-                                    <td>Cre Ele Apr:</td>
-                                    <td>0</td>
-                                    <td>Cre Obl Conv:</td>
-                                    <td>0</td>
-                                    <td>Cred Ele Conv:</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>Total Cred Obl Llev:</td>
-                                    <td>19.00</td>
-                                    <td>Total Cred El Llev:</td>
-                                    <td>0</td>
-                                    <td>Total Cred Obl Aprob:</td>
-                                    <td>15.00</td>
-                                    <td>Total Cred El Aprob:</td>
-                                    <td>0</td>
-                                    <td>Total Cred Obl Conv:</td>
-                                    <td>0</td>
-                                </tr>
-                            </tbody></table>
-                        </div>
-                    <div class="k-grid-header" bis_skin_checked="1">
-                        <div class="k-grid-header-wrap" bis_skin_checked="1">
-                            <table>
-                                <colgroup>
-                                    <col style="width: 100px">
-                                    <col style="width: 300px">
-                                    <col style="width: 60px">
-                                    <col style="width: 60px">
-                                    <col style="width: 60px">
-                                </colgroup>
-                                <thead class="grid">
-                                    <tr>
-                                        <th class="k-header">Código</th>
-                                        <th class="k-header">Curso</th>
-                                        <th class="k-header">Tipo</th>
-                                        <th class="k-header">Créditos</th>
-                                        <th class="k-header">Nota</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="k-grid-content" bis_skin_checked="1">
-                        <table>
-                            <colgroup>
-                                <col style="width: 100px">
-                                <col style="width: 300px">
-                                <col style="width: 60px">
-                                <col style="width: 60px">
-                                <col style="width: 60px">
-                            </colgroup>
-                            <tbody>
-                                    <tr>
-                                        <td>SI1447</td>
-                                        <td>ALGORITMOS</td>
-                                        <td>O</td>
-                                        <td>4</td>
-                                        <td>12.00                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>EC2201</td>
-                                        <td>ECONOMIA GENERAL</td>
-                                        <td>O</td>
-                                        <td>2</td>
-                                        <td>0                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>CS2397</td>
-                                        <td>REALIDAD NACIONAL Y REGIONAL</td>
-                                        <td>O</td>
-                                        <td>3</td>
-                                        <td>0                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>CS2258</td>
-                                        <td>SOCIOLOGIA</td>
-                                        <td>O</td>
-                                        <td>2</td>
-                                        <td>0                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ED2278</td>
-                                        <td>TALLER DE ARTE</td>
-                                        <td>O</td>
-                                        <td>2</td>
-                                        <td>0                                        </td>
-                                    </tr>
-                            </tbody>
-                        </table>
-                    </div>
-            </div>
-</fieldset>
+  </header>
 
+  <!-- MENÚ DE NAVEGACIÓN -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="semestreDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Semestre actual
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="semestreDropdown">
+              <li><a class="dropdown-item" href="horario.html">Horario de clases</a></li>
+              <li><a class="dropdown-item" href="Boletin.html">Boletín de curso</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="ProcesosDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Procesos Académicos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="ProcesosDropdown">
+              <li><a class="dropdown-item" href="plan.html">Plan de estudio</a></li>
+              <li><a class="dropdown-item" href="programacion.html">Programación académica</a></li>
+              <li><a class="dropdown-item" href="plan.html">Plan de estudio</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="resultadosDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Resultados Académicos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="ProcesosDropdown">
+              <li><a class="dropdown-item" href="historial.html">Historial académico</a></li>
+              <li><a class="dropdown-item" href="informe.html">Informe académico</a></li>
+            </ul>
+          </li>
+          <a class="nav-link text-danger" href="login.html">Cerrar Sesión</a>
+          <li></li>
+        </ul>
+      </div>
     </div>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="container content">
+    <h2 class="mb-4">Historial Académico</h2>
+
+    <!-- SEMESTRE 2023-1 -->
+    <div class="semester-title">Semestre: 2023-1</div>
+    <a href="#" class="btn btn-success btn-report">Reporte de Historial Académico</a>
+
+    <!-- Tabla Resumen -->
+    <div class="table-responsive">
+      <table class="table table-bordered resumen">
+        <tbody>
+          <tr>
+            <td>PPS:</td>
+            <td>12.33</td>
+            <td>PPS Aprob:</td>
+            <td>12.33</td>
+            <td>PPA:</td>
+            <td>12.33</td>
+            <td>PPA Apr:</td>
+            <td>12.33</td>
+            <td>Cre Obl Llev:</td>
+            <td>24.00</td>
+          </tr>
+          <tr>
+            <td>Cre El Llev:</td>
+            <td>0</td>
+            <td>Cre Obl Apr:</td>
+            <td>11</td>
+            <td>Cre Ele Apr:</td>
+            <td>0</td>
+            <td>Cre Obl Conv:</td>
+            <td>0</td>
+            <td>Cred Ele Conv:</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>Total Cred Obl Llev:</td>
+            <td>24.00</td>
+            <td>Total Cred El Llev:</td>
+            <td>0</td>
+            <td>Total Cred Obl Aprob:</td>
+            <td>24.00</td>
+            <td>Total Cred El Aprob:</td>
+            <td>0</td>
+            <td>Total Cred Obl Conv:</td>
+            <td>0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tabla Cursos Semestre 2023-1 -->
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Curso</th>
+            <th>Tipo</th>
+            <th>Créditos</th>
+            <th>Nota</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SI1447</td>
+            <td>ALGORITMOS</td>
+            <td>O</td>
+            <td>4</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>ED1331</td>
+            <td>COMUNICACION</td>
+            <td>O</td>
+            <td>3</td>
+            <td>11.00</td>
+          </tr>
+          <tr>
+            <td>CS1286</td>
+            <td>FILOSOFIA Y ETICA</td>
+            <td>O</td>
+            <td>2</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>MC1202</td>
+            <td>FUNDAMENTOS DE INGENIERIA MECATRONICA</td>
+            <td>O</td>
+            <td>2</td>
+            <td>14.00</td>
+          </tr>
+          <tr>
+            <td>MA1470</td>
+            <td>GEOMETRIA ANALITICA</td>
+            <td>O</td>
+            <td>4</td>
+            <td>9.00</td>
+          </tr>
+          <tr>
+            <td>SI1358</td>
+            <td>HERRAMIENTAS OFIMATICAS PARA LA VIDA UNIVERSITARIA</td>
+            <td>O</td>
+            <td>3</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>MA1408</td>
+            <td>MATEMATICA BASICA</td>
+            <td>O</td>
+            <td>4</td>
+            <td>14.00</td>
+          </tr>
+          <tr>
+            <td>ED1297</td>
+            <td>METODOLOGIA DE LOS ESTUDIOS SUPERIORES UNIVERSITARIOS</td>
+            <td>O</td>
+            <td>2</td>
+            <td>16.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SEMESTRE 2023-2 -->
+    <div class="semester-title mt-5">Semestre: 2023-2</div>
+    <a href="#" class="btn btn-success btn-report">Reporte de Historial Académico</a>
+
+    <!-- Tabla Resumen 2023-2 -->
+    <div class="table-responsive">
+      <table class="table table-bordered resumen">
+        <tbody>
+          <tr>
+            <td>PPS:</td>
+            <td>14.57</td>
+            <td>PPS Aprob:</td>
+            <td>14.57</td>
+            <td>PPA:</td>
+            <td>14.57</td>
+            <td>PPA Apr:</td>
+            <td>14.57</td>
+            <td>Cre Obl Llev:</td>
+            <td>21.00</td>
+          </tr>
+          <tr>
+            <td>Cre El Llev:</td>
+            <td>0</td>
+            <td>Cre Obl Apr:</td>
+            <td>4</td>
+            <td>Cre Ele Apr:</td>
+            <td>0</td>
+            <td>Cre Obl Conv:</td>
+            <td>0</td>
+            <td>Cred Ele Conv:</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>Total Cred Obl Llev:</td>
+            <td>21.00</td>
+            <td>Total Cred El Llev:</td>
+            <td>0</td>
+            <td>Total Cred Obl Aprob:</td>
+            <td>21.00</td>
+            <td>Total Cred El Aprob:</td>
+            <td>0</td>
+            <td>Total Cred Obl Conv:</td>
+            <td>0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tabla Cursos Semestre 2023-2 -->
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Curso</th>
+            <th>Tipo</th>
+            <th>Créditos</th>
+            <th>Nota</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ED1292</td>
+            <td>ACTIVIDAD DEPORTIVA</td>
+            <td>O</td>
+            <td>2</td>
+            <td>14.00</td>
+          </tr>
+          <tr>
+            <td>MA1335</td>
+            <td>ALGEBRA LINEAL</td>
+            <td>O</td>
+            <td>3</td>
+            <td>13.00</td>
+          </tr>
+          <tr>
+            <td>CB1324</td>
+            <td>BIOLOGIA Y EDUCACION AMBIENTAL</td>
+            <td>O</td>
+            <td>3</td>
+            <td>15.00</td>
+          </tr>
+          <tr>
+            <td>MA1439</td>
+            <td>CALCULO I</td>
+            <td>O</td>
+            <td>4</td>
+            <td>14.00</td>
+          </tr>
+          <tr>
+            <td>FI1363</td>
+            <td>CONCEPCION FISICA DEL UNIVERSO</td>
+            <td>O</td>
+            <td>3</td>
+            <td>16.00</td>
+          </tr>
+          <tr>
+            <td>QU1363</td>
+            <td>QUIMICA GENERAL</td>
+            <td>O</td>
+            <td>3</td>
+            <td>13.00</td>
+          </tr>
+          <tr>
+            <td>SI1361</td>
+            <td>PROGRAMACION</td>
+            <td>O</td>
+            <td>3</td>
+            <td>17.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (para menú desplegable, etc.) -->
+  <script
+    src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"
+  ></script>
+
+  <!-- Script para asignar fecha actual automáticamente -->
+  <script>
+    const fechaActual = new Date().toLocaleDateString('es-ES', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    document.getElementById('fecha-actual').textContent = fechaActual;
+  </script>
+</body>
+</html>
+
+
