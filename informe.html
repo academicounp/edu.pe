@@ -2,196 +2,214 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Sistema Integrado de Gestión Académica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Historial Académico</title>
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  />
   <style>
-    /* RESET BÁSICO */
-    * {
+    /* ======= Estilos de Encabezado ======= */
+    body {
+      background-color: #f8f9fa;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-      margin: 0; /* Asegura que el header y nav ocupen toda la anchura */
     }
-
-    /* ENCABEZADO */
-    header {
-      background-color: #4390df;       /* Color de fondo del header */
-      border-bottom: 5px solid #9a1616;/* Borde inferior rojo */
-      color: #fff;
-      padding: 15px;
+    .header-bg {
+      background-color: #428bca; /* Azul encabezado */
+      padding: 10px;
+      color: white;
+      border-bottom: 4px solid #9a1616; /* Borde rojo */
+    }
+    .header-content {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
-
     .header-left {
       display: flex;
       align-items: center;
+      gap: 20px;
     }
-
     .header-left img {
-      width: 70px;    /* Ajusta el tamaño del logo */
-      margin-right: 15px;
+      width: 80px;
     }
-
-    .header-left h1 {
-      font-size: 1.4rem;
-      margin-bottom: 5px;
+    .header-text {
+      text-align: left;
     }
-
-    .header-left p {
-      font-size: 1rem;
-    }
-
-    .header-right {
+    .header-right p {
       text-align: right;
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
-
-    /* BARRA DE NAVEGACIÓN */
-    nav {
-      background-color: #003366;
-    }
-
-    nav ul {
-      list-style: none;
+      font-size: 14px;
       display: flex;
-      padding-left: 10px; /* Un pequeño margen para separarlo del borde */
+      gap: 5px;
+      margin: 2px 0;
+    }
+    .header-right p strong {
+      white-space: nowrap;
+    }
+    .header-right p span {
+      flex-grow: 1;
+    }
+    .navbar {
+      background-color: #ffffff;
+      border-bottom: 1px solid black;
+    }
+    .navbar .nav-link {
+      color: black;
+    }
+    .navbar .nav-link:hover {
+      background-color: #0062cc;
+      color: #fff !important;
     }
 
-    nav ul li {
-      margin-right: 20px;
-    }
-
-    nav ul li a {
-      display: block;
-      color: #fff;
-      padding: 10px 15px;
-      text-decoration: none;
-    }
-
-    nav ul li a:hover,
-    nav ul li a.active {
-      background-color: #0077b3; /* Color para el hover o la pestaña activa */
-    }
-
-    /* CONTENIDO PRINCIPAL */
-    main {
-      max-width: 1200px;
-      margin: 20px auto;
-      background-color: #fff;
+    /* ======= Contenido Principal ======= */
+    .content {
       padding: 20px;
-      border-radius: 4px;
     }
 
-    main h2 {
-      margin-bottom: 15px;
-      font-size: 1.2rem;
-      color: #333;
-    }
-
-    .student-info p {
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-
-    /* TABLAS */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    table thead {
-      background-color: #1ba1e2; /* Encabezado azul */
+    /* ======= Estilos para Tablas ======= */
+    .table thead th {
+      background-color: #1ba1e2;
       color: #fff;
-    }
-
-    table th, table td {
-      border: 1px solid #ccc;
-      padding: 8px 12px;
-    }
-
-    table th {
-      font-weight: bold;
       text-align: center;
     }
-
-    /* Para la tabla de requisitos, resaltar la primera celda */
+    .table td,
+    .table th {
+      vertical-align: middle; /* Centra verticalmente el texto */
+    }
+    /* Resaltar la primera columna en la tabla de requisitos */
     .tabla-requisitos tbody tr td:first-child {
       font-weight: bold;
-    }
-
-    /* PIE DE PÁGINA (opcional) */
-    .footer {
-      position: relative;  /* O absolute, si deseas fijarlo al final de la ventana */
-      bottom: 0;
-      width: 100%;
-      height: 60px;
-      background-color: #f5f5f5;
-      text-align: center;
-      line-height: 60px;
-      margin-top: 20px; /* Separación del contenido principal */
     }
   </style>
 </head>
 <body>
-
   <!-- ENCABEZADO -->
-  <header>
-    <div class="header-left">
-      <!-- Reemplaza la ruta por el logo real -->
-      <img src="https://via.placeholder.com/70" alt="Logo UNP">
-      <div>
-        <h1>Sistema Integrado de Gestión Académica</h1>
-        <p>Universidad Nacional de Piura</p>
+  <header class="header-bg">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-left">
+          <!-- Ajusta la ruta de la imagen (logo) según tu proyecto -->
+          <img src="img/logounp.png" alt="Universidad Nacional de Piura" />
+          <div class="header-text">
+            <h3 class="mb-0">Sistema Integrado de Gestión Académica</h3>
+            <small>Universidad Nacional de Piura</small>
+          </div>
+        </div>
+        <div class="header-right">
+          <p>
+            <strong>Alumno:</strong>
+            <span>0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</span>
+          </p>
+          <p>
+            <strong>Escuela Profesional:</strong>
+            <span>INGENIERIA MECATRONICA</span>
+          </p>
+          <p>
+            <strong>Fecha:</strong>
+            <span id="fecha-actual"></span>
+          </p>
+          <p>
+            <strong>Semestre actual:</strong>
+            <span>2024-2</span>
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="header-right">
-      <p><strong>Alumno:</strong> 0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</p>
-      <p><strong>Escuela Profesional:</strong> INGENIERÍA MECATRÓNICA</p>
-      <p><strong>Fecha:</strong> sábado, 01 de marzo de 2025</p>
-      <p><strong>Semestre actual:</strong> 2024-2</p>
     </div>
   </header>
 
   <!-- MENÚ DE NAVEGACIÓN -->
-  <nav>
-    <ul>
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Semestre Actual</a></li>
-      <li><a href="#">Procesos Académicos</a></li>
-      <li><a href="#" class="active">Resultados Académicos</a></li>
-      <li><a href="#">Cerrar Sesión</a></li>
-    </ul>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="semestreDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Semestre actual
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="semestreDropdown">
+              <li><a class="dropdown-item" href="horario.html">Horario de clases</a></li>
+              <li><a class="dropdown-item" href="Boletin.html">Boletín de curso</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="ProcesosDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Procesos Académicos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="ProcesosDropdown">
+              <li><a class="dropdown-item" href="plan.html">Plan de estudio</a></li>
+              <li><a class="dropdown-item" href="programacion.html">Programación académica</a></li>
+              <li><a class="dropdown-item" href="plan.html">Plan de estudio</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="resultadosDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Resultados Académicos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="resultadosDropdown">
+              <li><a class="dropdown-item" href="historial.html">Historial académico</a></li>
+              <li><a class="dropdown-item" href="informe.html">Informe académico</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" href="login.html">Cerrar Sesión</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
   <!-- CONTENIDO PRINCIPAL -->
-  <main>
-    <h2>Informe Académico: Cursos restantes para culminar su carrera</h2>
-    <p><strong>0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</strong></p>
-
-    <div class="student-info">
-      <p>Alumno de la Facultad de INGENIERÍA INDUSTRIAL de la Universidad Nacional de Piura</p>
-      <p>Ingreso a la Universidad Nacional de Piura en el Semestre: <strong>2023-1</strong></p>
-      <p>Pertenece a la Promoción: <strong>2023</strong></p>
-      <p>Su Plan de Estudios correspondiente es: <strong>2018-1</strong></p>
-      <p>Su último Promedio Semestral: <strong>12</strong></p>
-      <p>Su Promedio Ponderado Acumulado es: <strong>12.26</strong></p>
-      <p>Su Promedio Ponderado Aprobado es: <strong>13.14</strong></p>
-      <p>Tiene aprobados en su historial un total de: <strong>15 Créditos</strong></p>
-    </div>
+  <div class="container content">
+    <h4 class="mt-3">Informe Académico: Cursos restantes para culminar su carrera</h4>
+    <p class="fw-bold">0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</p>
+    <p>Alumno de la Facultad de INGENIERÍA INDUSTRIAL de la Universidad Nacional de Piura</p>
+    <p>Ingreso a la Universidad Nacional de Piura en el Semestre: <strong>2023-1</strong></p>
+    <p>Pertenece a la Promoción: <strong>2023</strong></p>
+    <p>Su Plan de Estudios correspondiente es: <strong>2018-1</strong></p>
+    <p>Su último Promedio Semestral: <strong>12</strong></p>
+    <p>Su Promedio Ponderado Acumulado es: <strong>12.26</strong></p>
+    <p>Su Promedio Ponderado Aprobado es: <strong>13.14</strong></p>
+    <p>Tiene aprobados en su historial un total de: <strong>15 Créditos</strong></p>
 
     <p>Por lo que debe cumplir con los siguientes requisitos de graduación:</p>
 
     <!-- TABLA DE REQUISITOS DE GRADUACIÓN -->
-    <table class="tabla-requisitos">
+    <table class="table table-bordered tabla-requisitos">
       <thead>
         <tr>
           <th>Créditos</th>
@@ -222,10 +240,12 @@
       </tbody>
     </table>
 
-    <p>Informe actualizado hasta el semestre - Debe los siguientes cursos obligatorios:</p>
+    <p class="mt-4">
+      Informe actualizado hasta el semestre — Debe los siguientes cursos obligatorios:
+    </p>
 
     <!-- TABLA DE CURSOS RESTANTES -->
-    <table>
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th>Código</th>
@@ -256,11 +276,21 @@
         </tr>
       </tbody>
     </table>
-  </main>
-
-  <!-- PIE DE PÁGINA (OPCIONAL) -->
-  <div class="footer">
-    <p>Universidad Nacional de Piura &copy; 2025</p>
   </div>
+
+  <!-- Scripts de Bootstrap -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+  <!-- Script opcional para mostrar la fecha actual automáticamente -->
+  <script>
+    const fechaElemento = document.getElementById("fecha-actual");
+    if (fechaElemento) {
+      const hoy = new Date();
+      // Ejemplo de formato: sábado, 1 de marzo de 2025
+      const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      fechaElemento.textContent = hoy.toLocaleDateString('es-ES', opciones);
+    }
+  </script>
 </body>
 </html>
