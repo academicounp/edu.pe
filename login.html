@@ -1,103 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Integrado de Gestión Académica</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .header-bg {
-            background-color: #2b6dad;
-            padding: 10px;
-            color: white;
-        }
-        .separator {
-            height: 5px;
-            background-color: #8b0000;
-        }
-        .login-container {
-            margin-top: 50px;
-        }
-        .card {
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .btn-primary {
-            background-color: #0056b3;
-            border-color: #004085;
-        }
-        .captcha-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Captcha Emulado</title>
+  <style>
+    .captcha-label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: inline-block;
+    }
+
+    /* Contenedor que emula el recaptcha */
+    .fake-recaptcha {
+      width: 302px; /* Aproximado al ancho de reCAPTCHA */
+      border: 1px solid #dcdcdc;
+      border-radius: 4px;
+      padding: 8px;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      display: inline-block;
+    }
+
+    /* Sección principal (checkbox + texto) */
+    .fake-recaptcha-top {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+    .fake-recaptcha-top input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+    .fake-recaptcha-top label {
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Sección inferior (logo y enlaces) */
+    .fake-recaptcha-bottom {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 11px;
+      color: #555;
+    }
+    .fake-recaptcha-logo {
+      width: 24px;
+      height: 24px;
+      background: url('https://www.gstatic.com/images/branding/product/1x/recaptcha_48dp.png') no-repeat center / contain;
+      margin-right: 4px;
+    }
+    .fake-recaptcha-links {
+      line-height: 1.1;
+      text-align: right;
+    }
+    .fake-recaptcha-links a {
+      color: #555;
+      text-decoration: none;
+      font-size: 10px;
+      display: inline-block;
+    }
+    .fake-recaptcha-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <header class="header-bg text-center">
-        <img src="img/logounp.png" alt="Universidad Nacional de Piura" width="60">
-        <h3>Sistema Integrado de Gestión Académica</h3>
-        <small>Universidad Nacional de Piura</small>
-    </header>
-    <div class="separator"></div>
-    
-    <div class="container login-container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="img/1.jpg" class="img-fluid" alt="Sala de clases">
-                        </div>
-                        <div class="col-md-6">
-                            <h4 class="text-center">Bienvenido</h4>
-                            <p class="text-danger text-center"><strong>Atención!!</strong> Los estudiantes reportados por la Unidad de Registro Académico NO podrán inscribirse.</p>
-                            <form id="loginForm">
-                                <div class="mb-2">
-                                    <label for="instancia">Instancia</label>
-                                    <select class="form-select" id="instancia">
-                                        <option value="pregrado">PREGRADO</option>
-                                        <option value="postgrado">POSTGRADO</option>
-                                    </select>
-                                </div>
-                                <div class="mb-2">
-                                    <label for="codigo">Código Alumno</label>
-                                    <input type="text" class="form-control" id="codigo" required>
-                                </div>
-                                <div class="mb-2">
-                                    <label for="clave">Clave Web</label>
-                                    <input type="password" class="form-control" id="clave" required>
-                                </div>
-                                <div class="captcha-container mb-3">
-                                    <input type="checkbox" id="captcha"> No soy un robot
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <form>
+    <label for="usuario">Usuario:</label>
+    <input type="text" id="usuario" name="usuario" required><br><br>
+
+    <label for="clave">Contraseña:</label>
+    <input type="password" id="clave" name="clave" required><br><br>
+
+    <!-- Etiqueta del Captcha -->
+    <label class="captcha-label">Código Captcha:</label>
+    <div class="fake-recaptcha">
+      <div class="fake-recaptcha-top">
+        <input type="checkbox" id="fakeCaptcha" />
+        <label for="fakeCaptcha">No soy un robot</label>
+      </div>
+      <div class="fake-recaptcha-bottom">
+        <div class="fake-recaptcha-logo"></div>
+        <div class="fake-recaptcha-links">
+          <div>reCAPTCHA</div>
+          <div>
+            <a href="#" target="_blank">Privacidad</a> -
+            <a href="#" target="_blank">Condiciones</a>
+          </div>
         </div>
+      </div>
     </div>
 
-    <script>
-        document.getElementById("loginForm").onsubmit = function(event) {
-            event.preventDefault(); // Evita el envío del formulario
-            
-            var codigo = document.getElementById("codigo").value;
-            var clave = document.getElementById("clave").value;
-            var captcha = document.getElementById("captcha").checked;
-
-            // Simulación de credenciales correctas
-            if (codigo === "0532023042" && clave === "p4tr1c1o" && captcha) {
-                window.location.href = "menu.html"; // Redirige a menu.html
-            } else {
-                alert("Código, clave incorrectos o captcha no marcado. Inténtalo de nuevo.");
-            }
-        };
-    </script>
+    <br>
+    <button type="submit">Iniciar Sesión</button>
+  </form>
 </body>
 </html>
