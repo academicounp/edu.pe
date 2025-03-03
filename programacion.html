@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Integrado de Gestión Académica</title>
+    <title>Programación académica</title> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         body {
@@ -56,6 +57,20 @@
         .content {
             padding: 20px;
         }
+        /* ======== Estilos para la alerta flotante con fade-in/out ======== */
+        .custom-alert {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;            /* Sobre todo el contenido */
+            opacity: 0;               /* Inicia invisible */
+            pointer-events: none;     /* No hace clic cuando está oculta */
+            transition: opacity 0.5s; /* Efecto de desvanecimiento */
+        }
+        .custom-alert.show {
+            opacity: 1;               /* Al mostrar, se hace visible */
+            pointer-events: auto;     /* Reactiva la interacción */
+        }
     </style>
 </head>
 <body>
@@ -87,7 +102,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="menu.html">Inicio</a>
+                        <a class="nav-link active" href="#">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="semestreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -113,84 +128,66 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="ProcesosDropdown">
                             <li><a class="dropdown-item" href="historial.html">Historial académico</a></li>
-                            <li><a class="dropdown-item" href="informe.html">informe académico</a></li>
+                            <li><a class="dropdown-item" href="informe.html">Informe académico</a></li>
                         </ul>
                     </li>
-                        <a class="nav-link text-danger" href="login.html">Cerrar Sesión</a>
                     <li>
+                        <a class="nav-link text-danger" href="login.html">Cerrar Sesión</a>
+                    </li>
                 </ul>
             </div>
-
-            <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Ejemplo Notificación con Fade</title>
-  <!-- Bootstrap CSS -->
-  <link 
-    rel="stylesheet" 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-  />
-  <style>
-    /* Estilos para la alerta flotante */
-    .custom-alert {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 9999;              /* Para que aparezca sobre todo */
-      opacity: 0;                 /* Inicialmente invisible */
-      pointer-events: none;       /* No interferir con clics cuando está oculta */
-      transition: opacity 0.5s;   /* Duración del efecto fade */
-    }
-    .custom-alert.show {
-      opacity: 1;                 /* Al mostrarla, se hace visible */
-      pointer-events: auto;       /* Reactiva la interacción */
-    }
-  </style>
-</head>
-<body class="bg-light">
-
-  <div class="container pt-5">
-    <h1>Ejemplo de Notificación</h1>
-    <p>Haz clic en el botón para mostrar el mensaje de error con fade-in y fade-out.</p>
-    <button class="btn btn-danger" onclick="showErrorAlert()">
-      Mostrar Error
-    </button>
-  </div>
-
-  <!-- Alerta flotante (personalizada) -->
-  <div 
-    id="errorAlert" 
-    class="alert alert-danger custom-alert d-flex align-items-center" 
-    role="alert"
-  >
-    <!-- Puedes usar un ícono de Bootstrap Icons, Font Awesome, etc. -->
-    <svg class="bi flex-shrink-0 me-2" width="24" height="24" fill="currentColor" role="img" aria-label="Error:">
-      <use xlink:href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/bootstrap-icons.svg#exclamation-octagon-fill"/>
-    </svg>
-    <div>
-      <strong>Lo sentimos.</strong> Ocurrió un error inesperado.
-    </div>
-  </div>
-
-  <!-- Bootstrap JS (para iconos y otras utilidades) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <script>
-    function showErrorAlert() {
-      // Obtenemos la alerta
-      const alertBox = document.getElementById('errorAlert');
-      // Añadimos la clase .show para hacerla visible con el fade-in
-      alertBox.classList.add('show');
-      
-      // Después de 3 segundos (3000 ms), la ocultamos con fade-out
-      setTimeout(() => {
-        alertBox.classList.remove('show');
-      }, 3000);
-    }
-  </script>
-</body>
-</html>
-
         </div>
     </nav>
+
+    <!-- Contenido principal -->
+    <div class="container content">
+        <h1>Programación Académica</h1>
+        <p>
+          Aquí iría el contenido de la página...
+        </p>
+        <!-- Botón de ejemplo para disparar la alerta -->
+        <button class="btn btn-danger" onclick="showErrorAlert()">
+          Simular Error
+        </button>
+    </div>
+
+    <!-- Alerta flotante (roja) en la parte inferior derecha -->
+    <div 
+      id="errorAlert" 
+      class="alert alert-danger custom-alert d-flex align-items-center" 
+      role="alert"
+    >
+      <!-- Ícono (usando Bootstrap Icons) -->
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" fill="currentColor" role="img" aria-label="Error:">
+        <use xlink:href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/bootstrap-icons.svg#exclamation-octagon-fill"/>
+      </svg>
+      <div>
+        <strong>Lo sentimos.</strong> Ocurrió un error inesperado.
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Mostrar fecha actual en formato ES
+      document.getElementById('fecha-actual').textContent =
+        new Date().toLocaleDateString('es-ES', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+
+      // Función para mostrar la alerta con fade-in y luego ocultarla con fade-out
+      function showErrorAlert() {
+        const alertBox = document.getElementById('errorAlert');
+        // Agregamos la clase 'show' para que aparezca (fade-in)
+        alertBox.classList.add('show');
+        
+        // Pasados 3 segundos (3000ms), removemos la clase 'show' para que desaparezca (fade-out)
+        setTimeout(() => {
+          alertBox.classList.remove('show');
+        }, 10000);
+      }
+    </script>
+</body>
+</html>
