@@ -141,14 +141,14 @@
 
     <!-- Contenido principal -->
     <div class="container d-flex justify-content-start">
-  <table class="table table-borderless w-75 align-middle">
-    <tbody>
-      <tr style="border-bottom: 1px solid #ccc;">
-        <td colspan="2" style="font-size: 24px;">Programación académica</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+        <table class="table table-borderless w-75 align-middle">
+            <tbody>
+                <tr style="border-bottom: 1px solid #ccc;">
+                    <td colspan="2" style="font-size: 24px;">Programación académica</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <!-- Alerta flotante (roja) en la parte inferior derecha -->
     <div 
@@ -182,11 +182,16 @@
         // Agregamos la clase 'show' para que aparezca (fade-in)
         alertBox.classList.add('show');
         
-        // Pasados 3 segundos (3000ms), removemos la clase 'show' para que desaparezca (fade-out)
+        // Pasados 10 segundos (10000 ms), removemos la clase 'show' para que desaparezca (fade-out)
         setTimeout(() => {
           alertBox.classList.remove('show');
         }, 10000);
       }
+
+      // Llamamos automáticamente a la función al cargar la página
+      window.addEventListener('DOMContentLoaded', () => {
+        showErrorAlert();
+      });
     </script>
 </body>
 </html>
