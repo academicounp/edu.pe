@@ -4,72 +4,39 @@
   <meta charset="UTF-8" />
   <title>Sistema Integrado de Gestión Académica</title>
   <!-- Bootstrap CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
   <style>
     body {
       background-color: #f8f9fa;
       margin: 0;
       padding: 0;
     }
-    /* Encabezado azul */
     .header-bg {
       background-color: #428bca;
       color: #fff;
       padding: 10px 20px;
       position: relative;
     }
-    .header-bg h3 {
-      margin: 0;
-      font-weight: 600;
-    }
-    .header-bg small {
-      font-size: 80%;
-    }
-    /* Borde rojo debajo del encabezado */
     .separator {
       height: 4px;
       background-color: #9a1616;
     }
-    /* Texto de sesión en la esquina superior derecha */
     .session-status {
       position: absolute;
       right: 20px;
       top: 10px;
       font-size: 0.9rem;
     }
-    /* Contenedor principal */
     .main-container {
       padding: 20px;
     }
-    /* Imagen y formulario en la misma fila */
-    .login-row {
-      margin-top: 20px;
-    }
-    /* Tarjeta del formulario */
     .login-card {
       background-color: #fff;
       border-radius: 8px;
       padding: 20px;
     }
-    /* Título “Bienvenido” */
-    .login-card h4 {
-      text-align: center;
-      margin-bottom: 15px;
-    }
-    /* Mensaje de atención en rojo */
-    .alert-attention {
-      color: #dc3545;
-      font-weight: bold;
-      font-size: 0.9rem;
-      text-align: center;
-      margin-bottom: 15px;
-    }
-    /* Fake reCAPTCHA */
     .fake-recaptcha {
-      width: 302px; /* Similar a reCAPTCHA real */
+      width: 302px;
       border: 1px solid #dcdcdc;
       border-radius: 4px;
       padding: 8px;
@@ -103,8 +70,7 @@
     .fake-recaptcha-logo {
       width: 24px;
       height: 24px;
-      background: url('https://www.gstatic.com/images/branding/product/1x/recaptcha_48dp.png')
-        no-repeat center / contain;
+      background: url('https://www.gstatic.com/images/branding/product/1x/recaptcha_48dp.png') no-repeat center / contain;
       margin-right: 4px;
     }
     .fake-recaptcha-links {
@@ -133,24 +99,40 @@
   <!-- Contenido principal -->
   <div class="container main-container">
     <div class="row login-row">
-      <!-- Imagen a la izquierda -->
+      <!-- Carrusel de imágenes -->
       <div class="col-md-6 mb-3">
-        <!-- Ajusta la ruta de la imagen (1.jpg) según tu proyecto -->
-        <img
-          src="img/1.jpg"
-          alt="Frontis UNP"
-          class="img-fluid rounded shadow"
-        />
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="1.jpg" class="d-block w-100 rounded shadow" alt="Imagen 1">
+            </div>
+            <div class="carousel-item">
+              <img src="2.jpg" class="d-block w-100 rounded shadow" alt="Imagen 2">
+            </div>
+            <div class="carousel-item">
+              <img src="3.jpg" class="d-block w-100 rounded shadow" alt="Imagen 3">
+            </div>
+            <div class="carousel-item">
+              <img src="4.jpg" class="d-block w-100 rounded shadow" alt="Imagen 4">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+        </div>
       </div>
 
-      <!-- Formulario de login a la derecha -->
+      <!-- Formulario de login -->
       <div class="col-md-6">
-        <div class="login-card shadow">
-          <h4>Bienvenido</h4>
-          <p class="alert-attention">
-            Atención !! Los estudiantes reportados por la Unidad de Registro
-            Académico, como observación de documentos (Promoción 2023), NO se
-            activará horario de inscripción
+        <div class="login-card shadow p-4 bg-white rounded">
+          <h4 class="text-center">Bienvenido</h4>
+          <p class="text-danger text-center fw-bold">
+            Atención !! Los estudiantes reportados por la Unidad de Registro Académico, como observación de documentos (Promoción 2023), NO se activará horario de inscripción
             <a href="#">Ver Lista</a>
           </p>
           <form id="loginForm">
@@ -163,27 +145,12 @@
             </div>
             <div class="mb-3">
               <label for="codigo" class="form-label">Código Alumno:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="codigo"
-                name="codigo"
-                value="0532023042"
-                required
-              />
+              <input type="text" class="form-control" id="codigo" name="codigo" required />
             </div>
             <div class="mb-3">
               <label for="clave" class="form-label">Clave Web:</label>
-              <input
-                type="password"
-                class="form-control"
-                id="clave"
-                name="clave"
-                value="p4tr1c1o"
-                required
-              />
+              <input type="password" class="form-control" id="clave" name="clave" required />
             </div>
-
             <!-- Fake reCAPTCHA -->
             <label for="fakeCaptcha" class="form-label">Código Captcha:</label>
             <div class="fake-recaptcha">
@@ -202,13 +169,10 @@
                 </div>
               </div>
             </div>
-
             <div class="mb-3">
               <a href="#" class="text-decoration-none">¿Ha olvidado su clave de ingreso?</a>
             </div>
-            <button type="submit" class="btn btn-primary w-100">
-              Iniciar Sesión
-            </button>
+            <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
           </form>
         </div>
       </div>
@@ -218,25 +182,19 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Ejemplo de validación básica
     document.getElementById('loginForm').addEventListener('submit', function (e) {
       e.preventDefault();
-
       const captchaChecked = document.getElementById('fakeCaptcha').checked;
       if (!captchaChecked) {
         alert('Por favor, marca la casilla "No soy un robot"');
         return;
       }
-
-      // Aquí simulamos credenciales correctas:
-       const codigo = document.getElementById('codigo').value;
-       const clave = document.getElementById('clave').value;
-
-       if (codigo === '0532023042' && clave === 'p4tr1c1o') {
-  // Redirigir directamente sin alert
-         window.location.href = 'menu.html';
-       } else {
-       alert('Código o clave incorrectos. Intente nuevamente.');
+      const codigo = document.getElementById('codigo').value;
+      const clave = document.getElementById('clave').value;
+      if (codigo === '0532023042' && clave === 'p4tr1c1o') {
+        window.location.href = 'menu.html';
+      } else {
+        alert('Código o clave incorrectos. Intente nuevamente.');
       }
     });
   </script>
