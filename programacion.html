@@ -1,1 +1,125 @@
-b
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Integrado de Gestión Académica</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header-bg {
+            background-color: #428bca;
+            padding: 10px;
+            color: white;
+            border-bottom: 4px solid #9a1616;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .header-left img {
+            width: 80px;
+        }
+        .header-text {
+            text-align: left;
+        }
+        .header-right p {
+            text-align: right;
+            font-size: 14px;
+            display: flex;
+            gap: 5px;
+            margin: 2px 0;
+        }
+        .header-right p strong {
+            white-space: nowrap;
+        }
+        .header-right p span {
+            flex-grow: 1;
+        }
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid black;
+        }
+        .navbar .nav-link {
+            color: black;
+        }
+        .navbar .nav-link:hover {
+            background-color: #0062cc;
+        }
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-bg">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <img src="img/logounp.png" alt="Universidad Nacional de Piura">
+                    <div class="header-text">
+                        <h3 class="mb-0">Sistema Integrado de Gestión Académica</h3>
+                        <small>Universidad Nacional de Piura</small>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <p><strong>Alumno:</strong> <span>0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</span></p>
+                    <p><strong>Escuela Profesional:</strong> <span>INGENIERIA MECATRONICA</span></p>
+                    <p><strong>Fecha:</strong> <span id="fecha-actual"></span></p>
+                    <p><strong>Semestre actual:</strong> <span>2025-0</span></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="menu.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="semestreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Semestre actual
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="semestreDropdown">
+                            <li><a class="dropdown-item" href="horario.html">Horario de clases</a></li>
+                            <li><a class="dropdown-item" href="Boletin.html">Boletín de curso</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="ProcesosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Procesos Académicos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="ProcesosDropdown">
+                            <li><a class="dropdown-item" href="plan.html">Plan de estudio</a></li>
+                            <li><a class="dropdown-item" href="programacion.html">Programación académica</a></li>
+                            <li><a class="dropdown-item" href="plan.html">Plan de estudio</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="resultadosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Resultados Académicos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="ProcesosDropdown">
+                            <li><a class="dropdown-item" href="historial.html">Historial académico</a></li>
+                            <li><a class="dropdown-item" href="informe.html">informe académico</a></li>
+                        </ul>
+                    </li>
+                        <a class="nav-link text-danger" href="login.html">Cerrar Sesión</a>
+                    <li>
+                </ul>
+            </div>
+        </div>
+    </nav>
