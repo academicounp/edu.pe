@@ -125,7 +125,6 @@
     
     <div class="container mt-4">
         <h3 class="section-title">Plan de Estudios 2018-1</h3>
-        <button class="reporte-btn">Reporte de Plan de Estudios</button>
         <div class="table-container">
             <details>
                 <summary>Ciclo I</summary>
@@ -140,69 +139,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>101</td>
-                            <td>Matemáticas Básicas</td>
-                            <td>Ninguno</td>
-                            <td>Obligatorio</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <td>102</td>
-                            <td>Física General</td>
-                            <td>Ninguno</td>
-                            <td>Obligatorio</td>
-                            <td>4</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </details>
-            <details>
-                <summary>Ciclo II</summary>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Curso</th>
-                            <th>Requisitos</th>
-                            <th>Tipo</th>
-                            <th>Créditos</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>201</td>
-                            <td>Cálculo I</td>
-                            <td>Matemáticas Básicas</td>
-                            <td>Obligatorio</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>202</td>
-                            <td>Álgebra Lineal</td>
-                            <td>Matemáticas Básicas</td>
-                            <td>Obligatorio</td>
-                            <td>4</td>
-                        </tr>
+                        <tr><td>SI1447</td><td>ALGORITMOS</td><td>Ninguno</td><td>O</td><td>4</td></tr>
+                        <tr><td>ED1331</td><td>COMUNICACION</td><td>Ninguno</td><td>O</td><td>3</td></tr>
+                        <tr><td>CS1286</td><td>FILOSOFIA Y ETICA</td><td>Ninguno</td><td>O</td><td>2</td></tr>
+                        <tr><td>MC1202</td><td>FUNDAMENTOS DE INGENIERIA MECATRONICA</td><td>Ninguno</td><td>O</td><td>2</td></tr>
+                        <tr><td>MA1470</td><td>GEOMETRIA ANALITICA</td><td>Ninguno</td><td>O</td><td>4</td></tr>
+                        <tr><td>SI1358</td><td>HERRAMIENTAS OFIMATICAS PARA LA VIDA UNIVERSITARIA</td><td>Ninguno</td><td>O</td><td>3</td></tr>
+                        <tr><td>MA1408</td><td>MATEMATICA BASICA</td><td>Ninguno</td><td>O</td><td>4</td></tr>
+                        <tr><td>ED1297</td><td>METODOLOGIA DE LOS ESTUDIOS SUPERIORES UNIVERSITARIOS</td><td>Ninguno</td><td>O</td><td>2</td></tr>
                     </tbody>
                 </table>
             </details>
         </div>
     </div>
-    <script>
-        function actualizarFecha() {
-            let fecha = new Date();
-            let año = fecha.getFullYear();
-            let mes = fecha.getMonth() + 1;
-            let diaSemana = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'][fecha.getDay()];
-            let dia = fecha.getDate();
-            let mesTexto = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'][mes - 1];
-            document.getElementById("fecha-actual").innerText = `${diaSemana}, ${dia} de ${mesTexto} de ${año}`;
-        }
-        window.onload = actualizarFecha;
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
 </body>
 </html>
