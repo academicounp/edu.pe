@@ -243,18 +243,18 @@
     <h4>Horario de Clases</h4>
 
     <!-- Sección del semestre y mensaje de cursos -->
-    <div class="semester-section">
-      <div class="d-flex align-items-center">
-        <label for="semestreSelect" class="form-label mb-0 me-2">Semestre:</label>
-        <select id="semestreSelect" class="form-select form-select-sm" style="width:auto;">
-          <option value="2024-0" selected>2024-0</option>
-          <!-- Agregar más opciones si es necesario -->
-        </select>
-      </div>
-      <div class="text-danger">
-        No tiene cursos inscritos en el semestre 2024-0
-      </div>
-    </div>
+<div class="semester-section">
+  <div class="d-flex align-items-center">
+    <label for="semestreSelect" class="form-label mb-0 me-2">Semestre:</label>
+    <select id="semestreSelect" class="form-select form-select-sm" style="width:auto;" disabled>
+      <option value="2025-0" selected>2025-0</option>
+    </select>
+  </div>
+  <div class="text-danger">
+    No tienes cursos inscritos en el semestre 2025-0
+  </div>
+</div>
+
 
     <!-- Tabla de horario -->
     <div class="table-responsive">
@@ -276,13 +276,6 @@
         </tbody>
       </table>
     </div>
-
-    <!-- Botón de reporte y botón de refrescar -->
-    <div class="d-flex justify-content-between mt-3">
-      <button class="btn btn-horario">Reporte de Horario</button>
-      <i class="bi bi-arrow-repeat refresh-icon"></i>
-    </div>
-  </div>
 
   <!-- SCRIPTS -->
   <script>
