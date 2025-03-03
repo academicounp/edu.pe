@@ -229,14 +229,14 @@
       }
 
       // Aquí simulamos credenciales correctas:
-      const codigo = document.getElementById('codigo').value;
-      const clave = document.getElementById('clave').value;
-      if (codigo === '0532023042' && clave === 'p4tr1c1o') {
-        alert('Login exitoso. Redirigiendo...');
-        // Redirigir a otra página
-        window.location.href = 'menu.html';
-      } else {
-        alert('Código o clave incorrectos. Intente nuevamente.');
+       const codigo = document.getElementById('codigo').value;
+       const clave = document.getElementById('clave').value;
+
+       if (codigo === '0532023042' && clave === 'p4tr1c1o') {
+  // Redirigir directamente sin alert
+         window.location.href = 'menu.html';
+       } else {
+       alert('Código o clave incorrectos. Intente nuevamente.');
       }
     });
   </script>
