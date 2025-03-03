@@ -1,2 +1,197 @@
-#Horario de clases, se mostrará una tabla con un respectivo horario que será h.inicio, h fin. lunes martes etc, sabado. eso en una fila. En la columna 7am a 8 y 30 am, de 8 y 30 a 10 am, 10 a 12, 12 a 1
-#12 a 2, 4 a 5 y 30, 5 y 30 a 7, y de 7 a 9. QUe haya un selecionador en la parte superior para cambiar de horario,
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Informe Académico</title>
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  />
+  <!-- Bootstrap Icons (para el ícono de refrescar) -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
+  <style>
+    /* ======= Estilos de Encabezado ======= */
+    body {
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    .header-bg {
+      background-color: #428bca; /* Azul encabezado */
+      padding: 10px;
+      color: white;
+      border-bottom: 4px solid #9a1616; /* Borde rojo */
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-left img {
+      width: 80px;
+    }
+    .header-text {
+      text-align: left;
+    }
+    .header-right p {
+      text-align: right;
+      font-size: 14px;
+      display: flex;
+      gap: 5px;
+      margin: 2px 0;
+    }
+    .header-right p strong {
+      white-space: nowrap;
+    }
+    .header-right p span {
+      flex-grow: 1;
+    }
+    .navbar {
+      background-color: #ffffff;
+      border-bottom: 1px solid black;
+    }
+    .navbar .nav-link {
+      color: black;
+    }
+    .navbar .nav-link:hover {
+      background-color: #0062cc;
+      color: #fff !important;
+    }
+
+    /* ======= Contenido Principal ======= */
+    .content {
+      padding: 20px;
+      background-color: #fff;
+      margin-top: 20px;
+    }
+
+    /* ======= Estilos para Títulos ======= */
+    .content h4 {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    /* ======= Estilos para la sección del semestre y mensaje ======= */
+    .semester-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    .semester-section label {
+      font-weight: bold;
+    }
+    .semester-section .text-danger {
+      font-weight: bold;
+    }
+
+    /* ======= Estilos para Tablas ======= */
+    .table thead th {
+      background-color: #1ba1e2;
+      color: #fff;
+      text-align: center;
+    }
+    .table td,
+    .table th {
+      vertical-align: middle; /* Centra verticalmente el texto */
+    }
+
+    /* Botón “Reporte de Horario” verde */
+    .btn-horario {
+      background-color: #8dc63f;
+      color: #fff;
+      border: none;
+      margin-right: 10px;
+    }
+    .btn-horario:hover {
+      background-color: #78aa35;
+      color: #fff;
+    }
+
+    /* Ícono de refrescar */
+    .refresh-icon {
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+    .refresh-icon:hover {
+      color: #0062cc;
+    }
+  </style>
+</head>
+<body>
+  <!-- ENCABEZADO -->
+  <header class="header-bg">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-left">
+          <!-- Ajusta la ruta de la imagen (logo) según tu proyecto -->
+          <img src="img/logounp.png" alt="Universidad Nacional de Piura" />
+          <div class="header-text">
+            <h3 class="mb-0">Sistema Integrado de Gestión Académica</h3>
+            <small>Universidad Nacional de Piura</small>
+          </div>
+        </div>
+        <div class="header-right">
+          <p>
+            <strong>Alumno:</strong>
+            <span>0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</span>
+          </p>
+          <p>
+            <strong>Escuela Profesional:</strong>
+            <span>INGENIERIA MECATRONICA</span>
+          </p>
+          <p>
+            <strong>Fecha:</strong>
+            <span id="fecha-actual"></span>
+          </p>
+          <p>
+            <strong>Semestre actual:</strong>
+            <span>2024-2</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENÚ DE NAVEGACIÓN -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="semestreDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Semestre actual
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="semestreDropdown">
+              <li><a class="dropdown-item" href="#">Horario de clases</a></li>
+              <li><a cla
