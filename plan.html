@@ -73,7 +73,7 @@
                     <p><strong>Alumno:</strong> <span>0532023042 - CLAUDIO SANCHEZ, EDWIN PATRICIO</span></p>
                     <p><strong>Escuela Profesional:</strong> <span>INGENIERIA MECATRONICA</span></p>
                     <p><strong>Fecha:</strong> <span id="fecha-actual"></span></p>
-                    <p><strong>Semestre actual:</strong> <span>2025-0</span></p>
+                    <p><strong>Semestre actual:</strong> <span>2025-1</span></p>
                 </div>
             </div>
         </div>
@@ -366,5 +366,20 @@
             </details>
         </div>
     </div>
+
+  <!-- Scripts de Bootstrap -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+  <!-- Script opcional para mostrar la fecha actual automáticamente -->
+  <script>
+    const fechaElemento = document.getElementById("fecha-actual");
+    if (fechaElemento) {
+      const hoy = new Date();
+      // Ejemplo de formato: sábado, 1 de marzo de 2025
+      const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      fechaElemento.textContent = hoy.toLocaleDateString('es-ES', opciones);
+    }
+  </script>
 </body>
 </html>
